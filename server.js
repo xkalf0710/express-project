@@ -14,6 +14,14 @@ const friends = [
         name: "N1"
     },
 ];
+// app.use odoo bgaa date start hasaad heden ms ajillaj bgaa hesgiig harch bolnoo npm run watch 
+app.use((req, res, next) => {
+    const start = Date.now();
+    console.log(`${req.method} ${req.url}`);
+    next();
+    const delta = Date.now() - start;
+    console.log(`${req.method} ${req.url} ${delta}ms`);
+});
 
 app.get('/friends', (req, res) => {
 
