@@ -14,7 +14,8 @@ const friends = [
         name: "N1"
     },
 ];
-// app.use odoo bgaa date start hasaad heden ms ajillaj bgaa hesgiig harch bolnoo npm run watch 
+// app.use odoo bgaa date start hasaad heden ms ajillaj bgaa hesgiig harch bolnoo npm run watch hiisen vildlvvdin harah  middleware harah bolomjtoi 
+
 app.use((req, res, next) => {
     const start = Date.now();
     console.log(`${req.method} ${req.url}`);
