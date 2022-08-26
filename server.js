@@ -15,7 +15,7 @@ const friends = [
     },
 ];
 // app.use odoo bgaa date start hasaad heden ms ajillaj bgaa hesgiig harch bolnoo npm run watch hiisen vildlvvdin harah  middleware harah bolomjtoi 
-
+// get 
 app.use((req, res, next) => {
     const start = Date.now();
     console.log(`${req.method} ${req.url}`);
@@ -24,11 +24,30 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${delta}ms`);
 });
 
+//post req.body.name json hadgalaarai
+app.use(express.json());
+
+app.post('/friends', (req, res) => {
+    if(!req.body.name){
+       return  res.status(400).json({
+            error: "Missing friends name"
+        });
+    }
+    const newFriend = {
+        name: req.body.name,
+        id: friends.length
+    };
+    friends.push(newFriend);
+    res.json(newFriend);
+});
+
 app.get('/friends', (req, res) => {
 
     res.json({friends});
 
 });
+
+
 
 // get/friends/22
 app.get('/friends/:friendId', (req, res) => {
