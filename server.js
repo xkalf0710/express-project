@@ -5,6 +5,10 @@ const messagesRouter = require('./routes/messages.router');
 
 const app = express();
 
+// app.set('view engine', 'hbs');
+
+// app.set('views', path.join(__dirname, 'views'));
+
 const PORT = 3000;
 
 
@@ -18,8 +22,15 @@ app.use((req, res, next) => {
     console.log(`${req.method}, ${req.baseUrl}${req.url} ${delta}ms`);
 });
 
+
+// app.use('/site', express.static(path.join(__dirname, 'public')));
+
 //post req.body.name json hadgalaarai
 app.use(express.json());
+
+app.get('/', (res, req) => {
+
+});
 
 app.use('/friends',friendsRouter);
 
